@@ -11,7 +11,7 @@ type Props = {
 
 class KeyboardListener extends React.Component<Props> {
   componentDidMount() {
-    window.addEventListener('keydown', (e) => this.handleKeyDown(e)) // TK unlisten
+    window.addEventListener('keydown', e => this.handleKeyDown(e)) // TK unlisten
   }
 
   handleKeyDown(e: KeyboardEvent) {
@@ -31,6 +31,8 @@ class KeyboardListener extends React.Component<Props> {
       case 'ArrowLeft':
         this.props.selectPrevTrackFn()
         e.preventDefault()
+        break
+      default:
         break
     }
   }
