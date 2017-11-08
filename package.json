@@ -5,15 +5,91 @@
   "repository": "https://github.com/Medium/eng-growth",
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^8.0.2",
     "d3": "^4.11.0",
+    "eslint-config-xo-react": "^0.14.0",
+    "eslint-plugin-react": "^7.4.0",
     "next": "^4.0.0-beta.4",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "xo": "^0.18.2"
   },
   "scripts": {
     "dev": "next",
     "export": "next build && next export",
+    "lint": "xo",
     "flow": "flow"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "parser": "babel-eslint",
+    "env": [
+      "browser",
+      "jquery"
+    ],
+    "rules": {
+      "camelcase": "off",
+      "no-multi-spaces": [
+        "error",
+        {
+          "exceptions": {
+            "VariableDeclarator": true
+          }
+        }
+      ],
+      "capitalized-comments": "off",
+      "react/jsx-closing-bracket-location": "off",
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ],
+      "keyword-spacing": "off",
+      "max-statements-per-line": "off",
+      "react/require-default-props": "off",
+      "no-return-assign": "off",
+      "no-case-declarations": "off",
+      "no-negated-condition": "off",
+      "object-curly-spacing": [
+        2,
+        "always"
+      ],
+      "no-unused-vars": [
+        2,
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "react/no-array-index-key": "off",
+      "react/no-unescaped-entities": "off",
+      "one-var": "off",
+      "react/jsx-no-bind": "off",
+      "react/prop-types": "off",
+      "radix": "off",
+      "no-warning-comments": "off",
+      "valid-typeof": "off",
+      "import/no-unassigned-import": "off",
+      "no-unused-expressions": "off",
+      "react/no-unused-prop-types": "off",
+      "import/no-unresolved": "off",
+      "react/jsx-handler-names": "off",
+      "react/jsx-indent-props": "off",
+      "react/forbid-component-props": "off",
+      "unicorn/filename-case": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-first-prop-new-line": [
+        2,
+        "never"
+      ]
+    },
+    "space": true,
+    "semicolon": false,
+    "ignores": [
+      "pages/index.js",
+      "components/SnowflakeApp.js",
+      "components/TitleSelector.js",
+      "components/Track.js",
+      "components/TrackSelector.js"
+    ]
   },
   "devDependencies": {
     "flow-bin": "^0.57.2"
