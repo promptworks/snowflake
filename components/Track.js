@@ -17,7 +17,7 @@ class Track extends React.Component<Props> {
     const currentMilestone = track.milestones[currentMilestoneId - 1]
     return (
       <div className="track">
-        <style jsx>{`
+        <style jsx>
           div.track {
             margin: 0 0 20px 0;
             padding-bottom: 20px;
@@ -47,18 +47,18 @@ class Track extends React.Component<Props> {
           ul {
             line-height: 1.5em;
           }
-        `}</style>
+        </style>
         <h2>{track.displayName}</h2>
         <p className="track-description">{track.description}</p>
-        <div style={{display: 'flex'}}>
-          <table style={{flex: 0, marginRight: 50}}>
+        <div style={{ display: 'flex' }}>
+          <table style={{ flex: 0, marginRight: 50 }}>
             <tbody>
-              {milestones.slice().reverse().map((milestone) => {
+              {milestones.slice().reverse().map(milestone => {
                 const isMet = milestone <= currentMilestoneId
                 return (
                   <tr key={milestone}>
                     <td onClick={() => this.props.handleTrackMilestoneChangeFn(this.props.trackId, milestone)}
-                        style={{border: `4px solid ${milestone === currentMilestoneId ? '#000' : isMet ? categoryColorScale(track.category) : '#eee'}`, background: isMet ? categoryColorScale(track.category) : undefined}}>
+                        style={{ border: `4px solid ${milestone === currentMilestoneId ? '#000' : isMet ? categoryColorScale(track.category) : '#eee'}`, background: isMet ? categoryColorScale(track.category) : undefined }}>
                       {milestone}
                     </td>
                   </tr>
@@ -67,7 +67,7 @@ class Track extends React.Component<Props> {
             </tbody>
           </table>
           {currentMilestone ? (
-            <div style={{flex: 1}}>
+            <div style={{ flex: 1 }}>
               <h3>{currentMilestone.summary}</h3>
               <h4>Example behaviors:</h4>
               <ul>

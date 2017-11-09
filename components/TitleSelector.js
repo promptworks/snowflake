@@ -6,28 +6,28 @@ import type { MilestoneMap } from '../constants'
 
 type Props = {
   milestoneByTrack: MilestoneMap,
-  currentTitle: String,
+  currentTitle: string,
   setTitleFn: (string) => void
 }
 
-class TitleSelector extends React.Component {
+class TitleSelector extends React.Component<Props> {
   render() {
     const titles = eligibleTitles(this.props.milestoneByTrack)
-    return <select value={this.props.currentTitle} onChange={e => this.props.setTitleFn(e.target.value)}>
-      <style jsx>{`
+    return (<select value={this.props.currentTitle} onChange={e => this.props.setTitleFn(e.target.value)}>
+      <style jsx>
         select {
           font-size: 20px;
           line-height: 20px;
           margin-bottom: 20px;
           min-width: 300px;
         }
-      `}</style>
+      </style>
       {titles.map(title => (
         <option key={title}>
           {title}
         </option>
       ))}
-    </select>
+            </select>)
   }
 }
 
